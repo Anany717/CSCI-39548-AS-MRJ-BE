@@ -1,0 +1,24 @@
+{
+  "name": "final-backend-su24",
+  "version": "1.0.0",
+  "description": "server app for CSCI39548",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtlynch3/final-backend-su24.git"
+  },
+  "author": "Melissa Lynch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtlynch3/final-backend-su24/issues"
+  },
+  "homepage": "https://github.com/mtlynch3/final-backend-su24#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "sequelize": "^6.37.3"
+  }
+}
