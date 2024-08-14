@@ -13,6 +13,36 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+// Get Total Number of Employees
+router.get('/count', async (req, res, next) => {
+  try {
+    const count = await Employee.count();
+    res.status(200).json({ employeeCount: count });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Bulk Create Employees
+router.post('/bulk', async (req, res, next) => {
+  try {
+    const employees = await Employee.bulkCreate(req.body);
+    res.status(201).json(employees);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Get Employees by Department
+router.get('/department/:department', async (req, res, next) => {
+  try {
+    const employees = await Employee.findAll({ where: { department: req.params.department } });
+    res.status(200).json(employees);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Update an employee by ID
 router.put('/:id', async (req, res, next) => {
   try {

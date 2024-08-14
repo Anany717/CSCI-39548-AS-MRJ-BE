@@ -13,6 +13,37 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+
+// Get All Incomplete Tasks
+router.get('/incomplete', async (req, res, next) => {
+  try {
+    const tasks = await Task.findAll({ where: { completed: false } });
+    res.status(200).json(tasks);
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+// Get All Tasks with a Certain Priority
+router.get('/priority/:level', async (req, res, next) => {
+  try {
+    const tasks = await Task.findAll({ where: { priority: req.params.level } });
+    res.status(200).json(tasks);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// GET /api/tasks/count
+router.get('/count', async (req, res, next) => {
+  try {
+    const count = await Task.count();
+    res.status(200).json({ taskCount: count });
+  } catch (err) {
+    next(err);
+  }
+});
 // Update a task by ID
 router.put('/:id', async (req, res, next) => {
   try {
