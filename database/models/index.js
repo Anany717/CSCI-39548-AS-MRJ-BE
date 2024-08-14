@@ -14,7 +14,7 @@ async function seedDb() {
     const employee2 = await Employee.create({
       firstname: "John",
       lastname: "Snow",
-      department: "Chemistry",
+      department: "History",
     });
 
     const task1 = await Task.create({
