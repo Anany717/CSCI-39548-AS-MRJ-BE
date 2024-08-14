@@ -7,7 +7,7 @@ Employee.hasMany(Task);
 async function seedDb() {
   try {
     const employee1 = await Employee.create({
-      firstname: "Manmy",
+      firstname: "Manny",
       lastname: "Reyes",
       department: "Computer Science",
     });
