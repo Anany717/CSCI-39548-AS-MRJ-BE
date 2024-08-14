@@ -20,12 +20,12 @@ async function seedDb() {
     const task1 = await Task.create({
       content: "Say Ma' Queen ",
       priority: 2,
-      completed: false,
+      completed: true,
     });
     const task2 = await Task.create({
       content: "write code",
       priority: 4,
-      completed: true,
+      completed: false,
     });
 
     await task1.setEmployee(employee2);
