@@ -8,6 +8,7 @@ export const Task = db.define('Task', {
   },
   priority: {
     type: DataTypes.INTEGER,
+    defaultValue: 1,
     allowNull: false,
   },
   completed: {

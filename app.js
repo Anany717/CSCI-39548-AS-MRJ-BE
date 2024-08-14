@@ -1,6 +1,7 @@
 import express from 'express';
 import { db } from './database/database.js';
 import { seedDb } from './database/models/index.js';
+import { routerHub } from './routes/index.js';
 import cors from 'cors';
 
 // Create express server
@@ -18,6 +19,8 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 app.get('/hello', (req, res) => {
   res.send('Hello, world!');
 });
+
+app.use('/api', routerHub);
 
 // Handle page not found:
 // gets triggered when a request is made to an undefined route
@@ -43,7 +46,8 @@ const syncDatabase = async () => {
     console.log('------Synced to db------');
 
     // Seed the database if their is seed data to insert
-    // await seedDb();
+    await seedDb();
+    console.log('------Database seeded------');
 
   } catch (err) {
     console.error('Error syncing the database:', err);
