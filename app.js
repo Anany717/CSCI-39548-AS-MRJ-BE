@@ -46,7 +46,8 @@ const syncDatabase = async () => {
     console.log('------Synced to db------');
 
     // Seed the database if their is seed data to insert
-    // await seedDb();
+    await seedDb();
+    console.log('------Database seeded------');
 
   } catch (err) {
     console.error('Error syncing the database:', err);
