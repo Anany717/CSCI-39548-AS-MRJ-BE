@@ -28,6 +28,20 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
+// Get a specific employee by ID
+router.get('/:id', async (req, res, next) => {
+  try {
+    const employee = await Employee.findByPk(req.params.id, { include: [Task] });
+    if (employee) {
+      res.status(200).json(employee);
+    } else {
+      res.status(404).send('Employee not found');
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
 export {
   router as employeeRoutes,
 };
