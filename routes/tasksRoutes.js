@@ -43,6 +43,16 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+// Create a new task
+router.post('/', async (req, res, next) => {
+  try {
+    const { content, priority, completed, employeeId } = req.body;
+    const newTask = await Task.create({ content, priority, completed, employeeId });
+    res.status(201).json(newTask);
+  } catch (err) {
+    next(err);
+  }
+});
 
 
 export {

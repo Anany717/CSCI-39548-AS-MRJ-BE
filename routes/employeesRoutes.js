@@ -42,6 +42,19 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+// Create a new employee
+router.post('/', async (req, res, next) => {
+  try {
+    const { firstname, lastname, department } = req.body;
+    const newEmployee = await Employee.create({ firstname, lastname, department });
+    res.status(201).json(newEmployee);
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+
 export {
   router as employeeRoutes,
 };
