@@ -53,7 +53,12 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-
+// Delete an employee by ID
+router.delete("/:id", function (req, res, next) {
+  Employee.destroy({ where: { id: req.params.id } })
+    .then(() => res.status(200).json("EMPLOYEE DELETED"))
+    .catch((err) => next(err));
+});
 
 export {
   router as employeeRoutes,
