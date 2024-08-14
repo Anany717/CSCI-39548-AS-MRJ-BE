@@ -4,8 +4,10 @@
   "description": "server app for CSCI39548",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test-db": "node database/database.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mtlynch3/final-backend-su24.git"
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/mtlynch3/final-backend-su24#readme",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "pg": "^8.12.0",
     "sequelize": "^6.37.3"
