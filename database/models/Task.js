@@ -14,5 +14,6 @@ export const Task = db.define('Task', {
   completed: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
+    allowNull: false,
   },
 });
